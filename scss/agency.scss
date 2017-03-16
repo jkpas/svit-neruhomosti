@@ -663,7 +663,7 @@ section {
         .steps {
             .steps-item{
                 height: auto;
-                padding: 30% 30px 0 55px; 
+                padding: 30% 30px 0; 
                 margin-bottom: 10px;
             }     
         }            
@@ -1001,7 +1001,7 @@ ul.social-buttons {
     padding-right: 0 !important;
     .modal-dialog{
         height: 90%;
-        width: 90%;
+        // width: 90%;
     }
     .modal-content {
         border-radius: 0;
@@ -1147,6 +1147,7 @@ ul.social-buttons {
                 margin-bottom: 20px;    
             }
             #contactForm {
+                margin-bottom: 15px;
                 .form-group{
                     input{
                     border: 2px solid #32cd32;
@@ -1194,9 +1195,21 @@ ul.social-buttons {
             width: auto;
             height: auto;
         }
+        .modal-content { 
+            #contactForm {
+            margin-bottom: 15px;
+            }
+        }
     }
 }
 
+@media (max-width:576px){
+    .modal-form{
+        .close-modal{
+            right: 15px;
+        }
+    }
+}
 
 // Highlight Color Customization
 
@@ -1224,8 +1237,8 @@ body {
 
 // callme button
 #popup_toggle{
-    bottom:25px;
-    right:10px;
+    bottom: 50px;
+    right: 10px;
     position:fixed;
     z-index: 100;
     .img-circle{
@@ -1305,6 +1318,17 @@ body {
     }
     .img-circle:hover{
         opacity: 1;
+    }
+    p{
+        position: absolute;
+        width: 145px;
+        height: 0px;
+        top: 10px;
+        right: 0px;
+        z-index: 1000;
+        color: #000;
+        font-size: 22px;
+        font-weight: 600;        
     }
     @keyframes pulse {0% {transform: scale(0.9);opacity: 1;}
       50% {transform: scale(1); opacity: 1; }   

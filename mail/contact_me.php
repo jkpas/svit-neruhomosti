@@ -1,26 +1,26 @@
 <?php
-// Check for empty fields
-if(empty($_POST['name'])      ||
-   empty($_POST['email'])     ||
-   empty($_POST['phone'])     ||
-   empty($_POST['message'])   ||
-   !filter_var($_POST['email'],FILTER_VALIDATE_EMAIL))
-   {
-   echo "No arguments Provided!";
-   return false;
-   }
-   
-$name = strip_tags(htmlspecialchars($_POST['name']));
-$email_address = strip_tags(htmlspecialchars($_POST['email']));
-$phone = strip_tags(htmlspecialchars($_POST['phone']));
-$message = strip_tags(htmlspecialchars($_POST['message']));
-   
-// Create the email and send the message
-$to = 'yourname@yourdomain.com'; // Add your email address inbetween the '' replacing yourname@yourdomain.com - This is where the form will send a message to.
-$email_subject = "Website Contact Form:  $name";
-$email_body = "You have received a new message from your website contact form.\n\n"."Here are the details:\n\nName: $name\n\nEmail: $email_address\n\nPhone: $phone\n\nMessage:\n$message";
-$headers = "From: noreply@yourdomain.com\n"; // This is the email address the generated message will be from. We recommend using something like noreply@yourdomain.com.
-$headers .= "Reply-To: $email_address";   
-mail($to,$email_subject,$email_body,$headers);
-return true;         
+
+if((isset($_POST['name'])&&$_POST['name']!="")&&(isset($_POST['phone'])&&$_POST['phone']!="")){ //Проверка отправилось ли наше поля name и не пустые ли они
+        $to = 'anworldestate@gmail.com'; //Почта получателя, через запятую можно указать сколько угодно адресов
+        $email_subject = 'Обратный звонок'; //Заголовок сообщения
+        $email_body = '
+                <html>
+                    <head>
+                        <title>'.$email_subject.'</title>
+                    </head>
+                    <body>
+                        <p style="font-size: 16px; color: #000;">Имя: '.$_POST['name'].'</p>
+                        <p style="font-size: 16px; color: #000;">Телефон: '.$_POST['phone'].'</p>
+                        <p style="font-size: 16px; color: #000;">email: '.$_POST['email'].'</p>  
+                        <p style="font-size: 16px; color: #000;">Сообщение: '.$_POST['message'].'</p>                 
+                    </body>
+                </html>'; //Текст нащего сообщения можно использовать HTML теги
+        $headers  = "Content-type: text/html; charset=utf-8 \r\n"; //Кодировка письма
+        $headers .= "From: Отправитель <admin>\r\n"; //Наименование и почта отправителя
+        mail($to, $email_subject, $email_body, $headers); //Отправка письма с помощью функции mail
+        echo 'Спасибо! Ваше письмо отправлено.'; 
+}
+        
 ?>
+
+

@@ -574,7 +574,7 @@ section p {
 @media (max-width: 576px) {
   #technology .steps .steps-item {
     height: auto;
-    padding: 30% 30px 0 55px;
+    padding: 30% 30px 0;
     margin-bottom: 10px; } }
 
 #team .social-proof-title {
@@ -860,8 +860,7 @@ ul.social-buttons li a:hover, ul.social-buttons li a:focus, ul.social-buttons li
   padding-right: 0 !important; }
 
 .modal-form .modal-dialog {
-  height: 90%;
-  width: 90%; }
+  height: 90%; }
 
 .modal-form .modal-content {
   border-radius: 0;
@@ -980,6 +979,8 @@ ul.social-buttons li a:hover, ul.social-buttons li a:focus, ul.social-buttons li
     font-size: 18px;
     line-heigt: 28px;
     margin-bottom: 20px; }
+  .modal-form .modal-content #contactForm {
+    margin-bottom: 15px; }
   .modal-form .modal-content #contactForm .form-group input {
     border: 2px solid #32cd32;
     color: #000000;
@@ -1009,7 +1010,13 @@ ul.social-buttons li a:hover, ul.social-buttons li a:focus, ul.social-buttons li
 @media (max-width: 768px) {
   .modal-form .modal-dialog {
     width: auto;
-    height: auto; } }
+    height: auto; }
+  .modal-form .modal-content #contactForm {
+    margin-bottom: 15px; } }
+
+@media (max-width: 576px) {
+  .modal-form .close-modal {
+    right: 15px; } }
 
 ::-moz-selection {
   text-shadow: none;
@@ -1029,7 +1036,7 @@ body {
   webkit-tap-highlight-color: transparent; }
 
 #popup_toggle {
-  bottom: 25px;
+  bottom: 50px;
   right: 10px;
   position: fixed;
   z-index: 100; }
@@ -1116,6 +1123,17 @@ body {
 
 #popup_toggle .img-circle:hover {
   opacity: 1; }
+
+#popup_toggle p {
+  position: absolute;
+  width: 145px;
+  height: 0px;
+  top: 10px;
+  right: 0px;
+  z-index: 1000;
+  color: #000;
+  font-size: 22px;
+  font-weight: 600; }
 
 @keyframes pulse {
   0% {
